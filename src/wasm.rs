@@ -23,14 +23,22 @@ pub struct WasmPlugin;
 
 impl Plugin for WasmPlugin {
     fn build(&self, app: &mut App) {
-        let engine = Engine::new(
-            &Config::default()
-                .consume_fuel(true)
-                .async_support(true)
-                .target("pulley32")
-                .unwrap(),
-        )
-        .unwrap();
+        let mut config = Config::default();
+
+        #[cfg(not(target_arch = "wasm32"))]
+        config.consume_fuel(true).async_support(true);
+
+        #[cfg(target_arch = "wasm32")]
+        config
+            .consume_fuel(true)
+            .async_support(true)
+            .memory_init_cow(false)
+            .memory_reservation(0)
+            .memory_reservation_for_growth(1 << 20)
+            .target("pulley32")
+            .unwrap();
+
+        let engine = Engine::new(&config).unwrap();
 
         app.add_event::<WasmEventsIn>()
             .add_event::<WasmEventsOut>()
