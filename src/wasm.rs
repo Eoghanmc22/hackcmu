@@ -3,7 +3,7 @@
 
 use std::{cell::Cell, time::Duration};
 
-use anyhow::Context;
+use anyhow::{Context, bail};
 use bevy::{
     ecs::query,
     platform::collections::HashSet,
@@ -63,8 +63,6 @@ impl Plugin for WasmPlugin {
             .register_type::<ResumeTimerRes>()
             .register_type::<CodeBuffer>()
             .register_type::<CodeAction>()
-            .register_type::<WasmEventsOut>()
-            .register_type::<WasmEventsIn>()
             .register_type::<WasmCompileError>()
             .register_type::<AvaibleCallbacks>()
             .register_type::<WasmCallback>();
@@ -74,6 +72,7 @@ impl Plugin for WasmPlugin {
 fn forward_inbound_messages(
     mut events: EventWriter<GamePositionDelta>,
     mut query: Query<(&mut WasmTask, &mut WasmChannels)>,
+    mut error_events: EventWriter<WasmCompileError>,
 ) {
     for (mut task, mut ch) in query.iter_mut() {
         while let Ok(Some(event)) = ch.from_wasm.try_next() {
@@ -83,6 +82,18 @@ fn forward_inbound_messages(
                 }
                 WasmEventsOut::IsFinished => {
                     task.finished = true;
+                }
+                WasmEventsOut::RuntimeError(err) => {
+                    error!("Code Runtime error: {err:?}");
+
+                    let error = format!("{err:?}");
+                    let error = error.split("Stack backtrace").next();
+
+                    if let Some(error) = error {
+                        error_events.write(WasmCompileError {
+                            error: error.into(),
+                        });
+                    }
                 }
             }
         }
@@ -176,6 +187,8 @@ fn handle_code_action(
                         ));
                     }
                     Err(err) => {
+                        error!("Code Compile Error: {err:?}");
+
                         let error = format!("{err:?}");
                         let error = error.split("Stack backtrace").next();
 
@@ -261,13 +274,14 @@ pub enum CodeAction {
     Stop,
 }
 
-#[derive(Reflect, Event)]
+#[derive(Event)]
 pub enum WasmEventsOut {
     Delta(GamePositionDelta),
+    RuntimeError(anyhow::Error),
     IsFinished,
 }
 
-#[derive(Reflect, Event)]
+#[derive(Event)]
 pub enum WasmEventsIn {
     Resume,
     Abort,
@@ -473,12 +487,27 @@ impl CompiledCode {
         info!("Running Code");
 
         // TODO: look into instantiate_pre()
-        *instance = Some(
-            linker
-                .instantiate_async(store, module)
-                .await
-                .context("Execute code")?,
-        );
+        let res = linker
+            .instantiate_async(store, module)
+            .await
+            .context("Execute code");
+
+        let res = match res {
+            Ok(instance) => instance,
+            Err(err) => {
+                error!("Encountered runtime error in user provided wasm code");
+                let _ = self
+                    .to_bevy
+                    .unbounded_send(WasmEventsOut::RuntimeError(err));
+
+                // return Err(err);
+                bail!("Code runtime error")
+            }
+        };
+
+        *instance = Some(res);
+
+        info!("Code Executed");
 
         let _ = self.to_bevy.unbounded_send(WasmEventsOut::IsFinished);
 
