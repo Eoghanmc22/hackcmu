@@ -23,8 +23,14 @@ pub struct WasmPlugin;
 
 impl Plugin for WasmPlugin {
     fn build(&self, app: &mut App) {
-        let engine =
-            Engine::new(&Config::default().consume_fuel(true).async_support(true)).unwrap();
+        let engine = Engine::new(
+            &Config::default()
+                .consume_fuel(true)
+                .async_support(true)
+                .target("pulley32")
+                .unwrap(),
+        )
+        .unwrap();
 
         app.add_event::<WasmEventsIn>()
             .add_event::<WasmEventsOut>()

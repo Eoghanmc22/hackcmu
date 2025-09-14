@@ -21,7 +21,7 @@ wasmtime = { git = 'https://github.com/Eoghanmc22/wasmtime.git', features = [
   "component-model",
   "pulley",
   "wat",
-  # "winch",
+  "winch",
 ], default-features = false }
 
 [target.'cfg(unix)'.dependencies]
