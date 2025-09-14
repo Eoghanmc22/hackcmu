@@ -117,7 +117,7 @@ fn invalidate_on_code_change(
         if buf.code == task.code_compiled {
             continue;
         }
-        println!("Aborted due to code change");
+        info!("Aborted due to code change");
 
         if let Some(ch) = ch {
             let _ = ch.to_wasm.unbounded_send(WasmEventsIn::Abort);
@@ -198,7 +198,7 @@ fn handle_code_action(
                 reset_event.write(GameResetEvent);
                 *game_state = GameState::Pause;
 
-                println!("Aborted due to stop");
+                info!("Aborted due to stop");
 
                 if let Some(channels) = channels {
                     let _ = channels.to_wasm.unbounded_send(WasmEventsIn::Abort);
@@ -218,7 +218,7 @@ fn handle_task_finish(
 ) {
     for (entity, ch, task) in query.iter() {
         if ch.is_some() != task.is_some() {
-            println!("Sanity check failed: {}:{}:{}", file!(), line!(), column!());
+            error!("Sanity check failed: {}:{}:{}", file!(), line!(), column!());
         }
 
         if let Some(task) = task {
@@ -239,7 +239,7 @@ fn kill_old_levels(
         let Some(_) = task else { continue };
 
         if let Some(ch) = ch {
-            println!("Killed old level");
+            info!("Killed old level");
             let _ = ch.to_wasm.unbounded_send(WasmEventsIn::Abort);
         }
 
@@ -336,7 +336,7 @@ impl WasmCallback {
     }
 
     async fn call(&self, mut caller: Caller<'_, WasmContext>) {
-        println!("Running callback: {self:?}");
+        info!("Running callback: {self:?}");
 
         let data = caller.data_mut();
 
@@ -344,14 +344,14 @@ impl WasmCallback {
             match event {
                 WasmEventsIn::Resume => {}
                 WasmEventsIn::Abort => {
-                    println!("Got Abort");
+                    info!("Got Abort");
                     let _ = caller.as_context_mut().set_fuel(0);
                     return;
                 }
             }
         }
 
-        println!("Handled queued events");
+        info!("Handled queued events");
 
         match self {
             WasmCallback::Move => {
@@ -374,20 +374,20 @@ impl WasmCallback {
             }
         }
 
-        println!("Waiting for resume event");
+        info!("Waiting for resume event");
 
         while let Some(event) = data.from_bevy.next().await {
             match event {
                 WasmEventsIn::Resume => break,
                 WasmEventsIn::Abort => {
-                    println!("Got Abort");
+                    info!("Got Abort");
                     let _ = caller.as_context_mut().set_fuel(0);
                     return;
                 }
             }
         }
 
-        println!("Got Resume");
+        info!("Got Resume");
     }
 }
 
@@ -412,7 +412,7 @@ pub fn compile_code(
     callbacks: &AvaibleCallbacks,
     engine: &Engine,
 ) -> anyhow::Result<(CompiledCode, WasmChannels)> {
-    println!("Compiling code");
+    info!("Compiling code");
 
     let module = Module::new(&engine, code).context("Parse module")?;
 
@@ -445,7 +445,7 @@ pub fn compile_code(
     // Note, This line starts running the code
     // let instance = Instance::new(&mut store, &module, &imports)?;
 
-    println!("Compile Successful");
+    info!("Compile Successful");
 
     Ok((
         CompiledCode {
@@ -470,7 +470,7 @@ impl CompiledCode {
             ..
         } = self;
 
-        println!("Running Code");
+        info!("Running Code");
 
         // TODO: look into instantiate_pre()
         *instance = Some(
@@ -482,7 +482,7 @@ impl CompiledCode {
 
         let _ = self.to_bevy.unbounded_send(WasmEventsOut::IsFinished);
 
-        println!("Code Executed");
+        info!("Code Executed");
 
         Ok(())
     }

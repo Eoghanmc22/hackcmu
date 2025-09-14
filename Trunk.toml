@@ -1,3 +1,6 @@
+[build]
+target = "trunk.html"
+
 # [[hooks]]
 # stage = "post_build"
 # command = "fish"

@@ -56,7 +56,7 @@ fn read_position_deltas(
     mut query: Query<&mut GamePosition, With<Robot>>,
 ) {
     for delta in events.read() {
-        println!("Got Delta: {delta:?}");
+        info!("Got Delta: {delta:?}");
 
         for mut pos in query.iter_mut() {
             *pos = pos.shift_by(*delta);
@@ -71,7 +71,7 @@ fn handle_reset(
     query: Query<Entity, (With<Robot>, With<GamePosition>)>,
 ) {
     for _event in events.read() {
-        println!("Game reset logic");
+        info!("Game reset logic");
 
         for entity in query {
             cmds.entity(entity).insert(GamePosition::default());

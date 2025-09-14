@@ -1,4 +1,4 @@
-use bevy::{ecs::query, prelude::*, window::PresentMode};
+use bevy::{asset::AssetMetaCheck, prelude::*, window::PresentMode};
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
 pub mod game;
@@ -18,6 +18,11 @@ fn main() {
                         fit_canvas_to_parent: true,
                         ..default()
                     }),
+                    ..default()
+                })
+                .set(AssetPlugin {
+                    meta_check: AssetMetaCheck::Never,
+                    mode: AssetMode::Unprocessed,
                     ..default()
                 }),
             ui::UiPlugin,
