@@ -15,13 +15,13 @@ futures-channel = "0.3.31"
 syntect = { version = "5.2.0", features = [ "default-fancy" ], default-features = false }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-# wasmtime = { git = 'https://github.com/Eoghanmc22/wasmtime.git' }
-wasmtime = { path = "../wasmtime/crates/wasmtime" }
+wasmtime = { git = 'https://github.com/Eoghanmc22/wasmtime.git' }
+# wasmtime = { path = "../wasmtime/crates/wasmtime" }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 # wasmtime = {version = "36.0.2", features = [
-# wasmtime = { git = 'https://github.com/Eoghanmc22/wasmtime.git', features = [
-wasmtime = { path = "../wasmtime/crates/wasmtime", features = [
+wasmtime = { git = 'https://github.com/Eoghanmc22/wasmtime.git', features = [
+# wasmtime = { path = "../wasmtime/crates/wasmtime", features = [
   "async",
   "runtime",
   # "gc",
