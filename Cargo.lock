@@ -221,7 +221,7 @@ dependencies = [
  "objc2-foundation 0.3.1",
  "parking_lot",
  "percent-encoding",
- "windows-sys 0.60.2",
+ "windows-sys 0.52.0",
  "x11rb",
 ]
 
@@ -1974,7 +1974,7 @@ dependencies = [
 [[package]]
 name = "cranelift-assembler-x64"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-assembler-x64-meta",
 ]
@@ -1982,7 +1982,7 @@ dependencies = [
 [[package]]
 name = "cranelift-assembler-x64-meta"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-srcgen",
 ]
@@ -1990,7 +1990,7 @@ dependencies = [
 [[package]]
 name = "cranelift-bforest"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-entity",
 ]
@@ -1998,7 +1998,7 @@ dependencies = [
 [[package]]
 name = "cranelift-bitset"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "serde",
  "serde_derive",
@@ -2007,7 +2007,7 @@ dependencies = [
 [[package]]
 name = "cranelift-codegen"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "bumpalo",
  "cranelift-assembler-x64",
@@ -2033,7 +2033,7 @@ dependencies = [
 [[package]]
 name = "cranelift-codegen-meta"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-assembler-x64-meta",
  "cranelift-codegen-shared",
@@ -2045,12 +2045,12 @@ dependencies = [
 [[package]]
 name = "cranelift-codegen-shared"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 
 [[package]]
 name = "cranelift-control"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "arbitrary",
 ]
@@ -2058,7 +2058,7 @@ dependencies = [
 [[package]]
 name = "cranelift-entity"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-bitset",
  "serde",
@@ -2068,7 +2068,7 @@ dependencies = [
 [[package]]
 name = "cranelift-frontend"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-codegen",
  "log",
@@ -2079,12 +2079,12 @@ dependencies = [
 [[package]]
 name = "cranelift-isle"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 
 [[package]]
 name = "cranelift-native"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-codegen",
  "libc",
@@ -2094,7 +2094,7 @@ dependencies = [
 [[package]]
 name = "cranelift-srcgen"
 version = "0.125.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 
 [[package]]
 name = "crc32fast"
@@ -2537,7 +2537,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
- "windows-sys 0.61.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -3446,7 +3446,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "07033963ba89ebaf1584d767badaa2e8fcec21aedea6b8c0346d487d49c28667"
 dependencies = [
  "cfg-if",
- "windows-targets 0.53.3",
+ "windows-targets 0.52.6",
 ]
 
 [[package]]
@@ -4501,7 +4501,7 @@ dependencies = [
 [[package]]
 name = "pulley-interpreter"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cranelift-bitset",
  "log",
@@ -4512,7 +4512,7 @@ dependencies = [
 [[package]]
 name = "pulley-macros"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4814,7 +4814,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys 0.11.0",
- "windows-sys 0.61.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -5818,7 +5818,7 @@ dependencies = [
 [[package]]
 name = "wasmtime"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "addr2line",
  "anyhow",
@@ -5872,7 +5872,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-environ"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cpp_demangle",
@@ -5898,7 +5898,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-asm-macros"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cfg-if",
 ]
@@ -5906,7 +5906,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-cache"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
@@ -5925,7 +5925,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-component-macro"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "proc-macro2",
@@ -5939,12 +5939,12 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-component-util"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 
 [[package]]
 name = "wasmtime-internal-cranelift"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cfg-if",
@@ -5971,7 +5971,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-fiber"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cc",
@@ -5986,7 +5986,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-jit-debug"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "cc",
  "object",
@@ -5997,7 +5997,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-jit-icache-coherence"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cfg-if",
@@ -6008,7 +6008,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-math"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "libm",
 ]
@@ -6016,12 +6016,12 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-slab"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 
 [[package]]
 name = "wasmtime-internal-unwinder"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cfg-if",
@@ -6033,7 +6033,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-versioned-export-macros"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -6043,7 +6043,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-winch"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cranelift-codegen",
@@ -6060,7 +6060,7 @@ dependencies = [
 [[package]]
 name = "wasmtime-internal-wit-bindgen"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "bitflags 2.9.4",
@@ -6374,7 +6374,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.61.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -6386,7 +6386,7 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 [[package]]
 name = "winch-codegen"
 version = "38.0.0"
-source = "git+https://github.com/Eoghanmc22/wasmtime.git#8b340c9ac3c01ac4dd2de0a0992c444da023c29f"
+source = "git+https://github.com/Eoghanmc22/wasmtime.git#f9de748754d86275e6b910180df2350ea20f087e"
 dependencies = [
  "anyhow",
  "cranelift-assembler-x64",
