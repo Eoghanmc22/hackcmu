@@ -38,8 +38,8 @@ jobs: # here we are specifing all of the jobs
           file: ./out/hackcmu_bg.wasm
           options: "-O -ol 100 -s 100"
       - name: Copy
-        # run: cp -R assets out/ && cp index.html out/index.html
-        run: cp index.html out/index.html
+        run: cp -R assets out/ && cp index.html out/index.html
+        # run: cp index.html out/index.html
       - name: Push
         uses: s0/git-publish-subdir-action@develop
         env:
